@@ -42,6 +42,12 @@ install_links() {
     if [ ! -f "${XDG_STATE_HOME:-$HOME/.local/state}/rice/glyph.json" ]; then
         cp -a "$REPO_DIR/extras/defaults/glyph.json" "${XDG_STATE_HOME:-$HOME/.local/state}/rice/glyph.json"
     fi
+
+    if [ -d "$REPO_DIR/extras/fcitx5/glyph-nothing" ]; then
+        mkdir -p "$HOME/.local/share/fcitx5/themes"
+        rm -rf "$HOME/.local/share/fcitx5/themes/glyph-nothing"
+        cp -rT "$REPO_DIR/extras/fcitx5/glyph-nothing" "$HOME/.local/share/fcitx5/themes/glyph-nothing"
+    fi
 }
 
 install_system_themes() {
