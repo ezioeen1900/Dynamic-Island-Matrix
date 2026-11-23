@@ -146,7 +146,7 @@ hl.bind(vars.kbSpecialWs, fn.toggle_special("special"))
 hl.bind(vars.kbSystemMonitorWs, fn.toggle_special("sysmon"))
 hl.bind(vars.kbMusicWs, fn.toggle_special("music"))
 hl.bind(vars.kbCommunicationWs, fn.toggle_special("communication"))
-hl.bind(vars.kbTodoWs, fn.toggle_special("todo"))
+hl.bind(vars.kbTodoWs, hl.dsp.global("shell:memo"))
 
 -- Apps
 hl.bind(vars.kbTerminal, function() hl.exec_cmd(vars.terminal) end) -- при нажатии: user.lua может сменить vars.terminal
@@ -206,3 +206,6 @@ hl.bind(
         " -a 'Shell' -A 'Test1=I got it!' -A 'Test2=Another action'"
     )
 )
+
+-- Workspace live thumbnail overview
+hl.bind("ALT + Tab", hl.dsp.global("shell:overview"))
